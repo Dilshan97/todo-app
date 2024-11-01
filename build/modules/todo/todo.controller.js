@@ -8,17 +8,50 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
+const http_status_codes_1 = require("http-status-codes");
+//use cases
+const todoGetter_1 = __importDefault(require("./useCase/todoGetter"));
+const todoRemover_1 = __importDefault(require("./useCase/todoRemover"));
+const todoUpdater_1 = __importDefault(require("./useCase/todoUpdater"));
+const todoCreator_1 = __importDefault(require("./useCase/todoCreator"));
 const createTodo = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const auth = req.auth;
     const sanitizedInputs = req.body;
+    const todo = yield todoCreator_1.default.createTodo(sanitizedInputs, auth._id);
+    return res.status(http_status_codes_1.StatusCodes.CREATED).json({
+        message: "Todo successfully created!",
+        payload: todo
+    });
 });
 const updateTodo = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const auth = req.auth;
+    const { id } = req.params;
     const sanitizedInputs = req.body;
+    const dbTodo = yield todoUpdater_1.default.updateTodo(id, sanitizedInputs);
+    return res.status(http_status_codes_1.StatusCodes.OK).json({
+        message: "Todo successfully updated!",
+        payload: dbTodo
+    });
 });
 const deleteTodo = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const auth = req.auth;
     const { id } = req.params;
+    yield todoRemover_1.default.removeTodo(id);
+    return res.status(http_status_codes_1.StatusCodes.NO_CONTENT).json({
+        message: "Todo successfully deleted!"
+    });
 });
 const getAllTodos = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const auth = req.auth;
+    const dbTodos = yield todoGetter_1.default.getPaginatedTodos(auth._id);
+    return res.status(http_status_codes_1.StatusCodes.OK).json({
+        message: "Todos successfully fetched!",
+        payload: dbTodos
+    });
 });
 exports.default = {
     createTodo,

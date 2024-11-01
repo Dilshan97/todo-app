@@ -12,7 +12,13 @@ interface IUserModel extends  IUser, Document {}
 interface IAuth {
     _id: string | mongoose.Types.ObjectId;
     email: string;
-};
+}
+
+interface IAuthRecord {
+    _id: string;
+    email: string;
+    accessToken: string;
+}
 
 interface IUserRegisterSanitizedInputs {
     name: string;
@@ -29,6 +35,7 @@ export {
     IAuth,
     IUser,
     IUserModel,
+    IAuthRecord,
     IUserRegisterSanitizedInputs,
     IUserLoginSanitizedInputs,
 }

@@ -19,7 +19,7 @@ const registerUser = async (
     const user = new User({
         name,
         email,
-        hashedPassword
+        password: hashedPassword
     });
 
     await user.save();

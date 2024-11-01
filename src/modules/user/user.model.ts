@@ -28,7 +28,7 @@ const UserSchema: Schema<IUserModel> = new Schema<IUserModel>({
         type: String,
         required: [true, "Password is required"],
         minlength: 8,
-        select: false
+        // select: false
     }
 }, { versionKey: false, timestamps: true });
 

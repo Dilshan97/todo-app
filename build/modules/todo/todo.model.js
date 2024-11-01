@@ -1,10 +1,15 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+/*
+ *   Copyright (c) 2024 Dilshan Ramesh
+ *   All rights reserved.
+ */
 const mongoose_1 = require("mongoose");
+const constants_1 = require("../constants");
 const TodoSchema = new mongoose_1.Schema({
     user: {
         type: mongoose_1.Schema.Types.ObjectId,
-        ref: "User",
+        ref: constants_1.constants.MODELS.USER,
         required: [true, "User is required"]
     },
     title: {
@@ -25,7 +30,7 @@ const TodoSchema = new mongoose_1.Schema({
         type: String,
         required: [true, "Priority is required"],
         enum: {
-            values: ["low", "medium", "high"],
+            values: Object.values(constants_1.constants.TODO.PRIORITIES),
             message: "{VALUE} is not a valid priority"
         }
     },
@@ -33,7 +38,7 @@ const TodoSchema = new mongoose_1.Schema({
         type: String,
         required: [true, "Status is required"],
         enum: {
-            values: ["pending", "in progress", "completed"],
+            values: Object.values(constants_1.constants.TODO.STATUSES),
             message: "{VALUE} is not a valid status"
         }
     }
