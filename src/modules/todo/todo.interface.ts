@@ -32,6 +32,7 @@ interface ITodoUpdateSanitizedInputs {
 
 interface ITodoSanitizedResult {
     keyword: string;
+    status: string;
     sortBy: string;
 }
 
