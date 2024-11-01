@@ -25,6 +25,10 @@ const todoUpdateInputSanitizer = async (req: Request, res: Response, next: NextF
             "any.required": "Priority is required",
             "string.pattern.base": "Priority must be either low, medium, or high",
         }),
+        dueDate: Joi.date().required().messages({
+            "any.required": "Due date is required",
+            "date.base": "Due date must be a valid date",
+        }),
         status: Joi.string().valid(
             constants.TODO.STATUSES.PENDING,
             constants.TODO.STATUSES.IN_PROGRESS,

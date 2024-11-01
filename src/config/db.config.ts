@@ -1,3 +1,7 @@
+/*
+ *   Copyright (c) 2024 Dilshan Ramesh
+ *   All rights reserved.
+ */
 import InternalServerError from "../error/error.classes/InternalServerError";
 
 const getDBConfig = () => {

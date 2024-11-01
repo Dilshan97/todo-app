@@ -1,3 +1,7 @@
+/*
+ *   Copyright (c) 2024 Dilshan Ramesh
+ *   All rights reserved.
+ */
 import BadRequestError from "../../error/error.classes/BadRequestError";
 import { Request, Response, NextFunction } from "express";
 

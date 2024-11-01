@@ -1,3 +1,7 @@
+/*
+ *   Copyright (c) 2024 Dilshan Ramesh
+ *   All rights reserved.
+ */
 import User from "../user.model";
 import bcrypt from "bcryptjs";
 import UserService from "../user.service";

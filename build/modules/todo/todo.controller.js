@@ -31,7 +31,7 @@ const updateTodo = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
     const auth = req.auth;
     const { id } = req.params;
     const sanitizedInputs = req.body;
-    const dbTodo = yield todoUpdater_1.default.updateTodo(id, sanitizedInputs);
+    const dbTodo = yield todoUpdater_1.default.updateTodo(id, sanitizedInputs, auth._id);
     return res.status(http_status_codes_1.StatusCodes.OK).json({
         message: "Todo successfully updated!",
         payload: dbTodo
@@ -40,14 +40,16 @@ const updateTodo = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
 const deleteTodo = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const auth = req.auth;
     const { id } = req.params;
-    yield todoRemover_1.default.removeTodo(id);
+    yield todoRemover_1.default.removeTodo(id, auth._id);
     return res.status(http_status_codes_1.StatusCodes.NO_CONTENT).json({
         message: "Todo successfully deleted!"
     });
 });
 const getAllTodos = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const auth = req.auth;
-    const dbTodos = yield todoGetter_1.default.getPaginatedTodos(auth._id);
+    const pagination = req.pageable;
+    const sanitizedResult = req.body.sanitizedResult;
+    const dbTodos = yield todoGetter_1.default.getPaginatedTodos(auth._id, pagination, sanitizedResult);
     return res.status(http_status_codes_1.StatusCodes.OK).json({
         message: "Todos successfully fetched!",
         payload: dbTodos

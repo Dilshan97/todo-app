@@ -1,5 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+/*
+ *   Copyright (c) 2024 Dilshan Ramesh
+ *   All rights reserved.
+ */
 const mongoose_1 = require("mongoose");
 const constants_1 = require("../constants");
 const UserSchema = new mongoose_1.Schema({

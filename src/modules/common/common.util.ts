@@ -1,3 +1,7 @@
+/*
+ *   Copyright (c) 2024 Dilshan Ramesh
+ *   All rights reserved.
+ */
 import Joi from "joi";
 import mongoose from "mongoose";
 import DataValidationError, {TKeyValuePair} from "../../error/error.classes/DataValidationError";

@@ -1,3 +1,7 @@
+/*
+ *   Copyright (c) 2024 Dilshan Ramesh
+ *   All rights reserved.
+ */
 import bcrypt from "bcryptjs";
 import UserUtil from "../user.util";
 import UserCacher from "../user.cacher";
@@ -21,12 +25,12 @@ const login = async (sanitizedInputs: IUserLoginSanitizedInputs):  Promise<strin
 };
 
 const logout = async(auth: IAuthRecord): Promise<void> => {
-    const authRecord = await UserCacher.getAuthRecord(auth._id);
+    const authRecord = await UserCacher.getAuthRecord(auth.email);
 
     if (!authRecord)
         throw new UnAuthorizedError("Auth session is not found! Sign in again.");
 
-    await UserCacher.removeAuthRecord(authRecord._id);
+    await UserCacher.removeAuthRecord(authRecord.email);
 
     return;
 };

@@ -34,13 +34,22 @@ const TodoSchema: Schema<ITodoModel> = new Schema({
             message: "{VALUE} is not a valid priority"
         }
     },
+    dueDate: {
+      type: Date,
+      required: [true, "Due date is required"],
+      validate: {
+        validator: (value: Date) => value >= new Date(),
+        message: "Due date must be a future date"
+      }
+    },
     status: {
         type: String,
         required: [true, "Status is required"],
         enum: {
             values: Object.values(constants.TODO.STATUSES),
             message: "{VALUE} is not a valid status"
-        }
+        },
+        default: constants.TODO.STATUSES.PENDING
     }
 }, { versionKey: false, timestamps: true });
 

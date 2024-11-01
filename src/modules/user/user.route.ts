@@ -1,3 +1,7 @@
+/*
+ *   Copyright (c) 2024 Dilshan Ramesh
+ *   All rights reserved.
+ */
 import express from "express";
 import UserController from "./user.controller";
 import AuthMiddleware from "./middleware/authorizer";

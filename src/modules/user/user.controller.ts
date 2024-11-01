@@ -1,4 +1,8 @@
 
+/*
+ *   Copyright (c) 2024 Dilshan Ramesh
+ *   All rights reserved.
+ */
 import { Request, Response } from "express";
 import {IAuthRecord, IUserLoginSanitizedInputs, IUserRegisterSanitizedInputs} from "./user.interface";
 import {StatusCodes} from "http-status-codes";

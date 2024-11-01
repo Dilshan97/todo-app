@@ -12,6 +12,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+/*
+ *   Copyright (c) 2024 Dilshan Ramesh
+ *   All rights reserved.
+ */
 const BadRequestError_1 = __importDefault(require("../../error/error.classes/BadRequestError"));
 const paginate = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     let page = req.query.page || 1;

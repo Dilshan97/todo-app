@@ -3,6 +3,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+/*
+ *   Copyright (c) 2024 Dilshan Ramesh
+ *   All rights reserved.
+ */
 const InternalServerError_1 = __importDefault(require("../error/error.classes/InternalServerError"));
 const getDBConfig = () => {
     const MONGO_BASE_URL = process.env.MONGO_BASE_URL;
