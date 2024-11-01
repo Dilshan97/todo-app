@@ -1,3 +1,7 @@
+/*
+ *   Copyright (c) 2024 Dilshan Ramesh
+ *   All rights reserved.
+ */
 import UserCacher from "./user.cacher";
 import {IUserModel} from "./user.interface";
 import UnAuthorizedError from "../../error/error.classes/UnAuthorizedError";
@@ -10,7 +14,7 @@ const getAuthKey = (email: string): string => {
 const generateAccessToken = (dbUser: IUserModel) => {
     return jwt.sign(
         {
-            _id: dbUser._id.toString(),
+            _id: dbUser._id,
             email: dbUser.email
         },
         String(process.env.JWT_SECRET),
@@ -38,7 +42,7 @@ const generateAuthSession = async  (dbUser: IUserModel): Promise<string> => {
 
     if (!authRecord) {
         await UserCacher.createAuthRecord({
-            _id: dbUser.email,
+            _id: dbUser._id,
             email: dbUser.email,
             accessToken: accessToken,
         });

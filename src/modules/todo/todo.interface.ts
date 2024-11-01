@@ -9,6 +9,7 @@ interface ITodo {
     title: string;
     description: string;
     priority: string;
+    dueDate: Date;
     status: string;
 }
 
@@ -18,18 +19,26 @@ interface ITodoCreateSanitizedInputs {
     title: string;
     description: string;
     priority: string;
+    dueDate: Date;
 }
 
 interface ITodoUpdateSanitizedInputs {
     title: string;
     description: string;
     priority: string;
+    dueDate: Date;
     status: string;
+}
+
+interface ITodoSanitizedResult {
+    keyword: string;
+    sortBy: string;
 }
 
 export {
     ITodo,
     ITodoModel,
     ITodoCreateSanitizedInputs,
-    ITodoUpdateSanitizedInputs
+    ITodoUpdateSanitizedInputs,
+    ITodoSanitizedResult
 }

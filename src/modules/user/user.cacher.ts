@@ -1,3 +1,7 @@
+/*
+ *   Copyright (c) 2024 Dilshan Ramesh
+ *   All rights reserved.
+ */
 import UserUtil from "./user.util";
 import RedisConfig from "../../config/redis.config";
 import NotFoundError from "../../error/error.classes/NotFoundError";
@@ -5,13 +9,13 @@ import {IAuthRecord} from "./user.interface";
 
 const createAuthRecord = async (body: IAuthRecord): Promise<void> => {
     const redisClient = await RedisConfig.getInstance();
-    const key = UserUtil.getAuthKey(body._id);
+    const key = UserUtil.getAuthKey(body.email);
     await redisClient.set(key, JSON.stringify(body));
 };
 
 const updateAuthRecord = async (body: IAuthRecord) => {
     const redisClient = await RedisConfig.getInstance();
-    const key = UserUtil.getAuthKey(body._id);
+    const key = UserUtil.getAuthKey(body.email);
     const result = await redisClient.get(key);
     if (result) {
         await redisClient.set(key, JSON.stringify(body));

@@ -1,4 +1,7 @@
-
+/*
+ *   Copyright (c) 2024 Dilshan Ramesh
+ *   All rights reserved.
+ */
 import mongoose, { Document } from 'mongoose';
 
 interface IUser {

@@ -6,8 +6,11 @@ import express from "express";
 import TodoController from "./todo.controller";
 import AuthMiddleware from "../user/middleware/authorizer";
 import CommonMiddleware from "../common/common.middleware";
+
+//inout sanitization middlewares
 import TodoCreateInputSanitizer from "./middleware/todoCreateInputSanitizer";
 import TodoUpdateInputSanitizer from "./middleware/todoUpdateInputSanitizer";
+import TodoFetchInputSanitizer from "./middleware/todoFetchInputSanitizer";
 
 const router = express.Router();
 
@@ -35,6 +38,7 @@ router.get(
     "/",
     AuthMiddleware.authorizer,
     CommonMiddleware.paginate,
+    TodoFetchInputSanitizer.todoFetchInputSanitizer,
     TodoController.getAllTodos
 );
 

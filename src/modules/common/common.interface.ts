@@ -1,4 +1,7 @@
-
+/*
+ *   Copyright (c) 2024 Dilshan Ramesh
+ *   All rights reserved.
+ */
 interface IPagination {
     page: number;
     limit: number;

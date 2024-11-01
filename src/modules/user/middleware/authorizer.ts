@@ -1,4 +1,7 @@
-
+/*
+ *   Copyright (c) 2024 Dilshan Ramesh
+ *   All rights reserved.
+ */
 import {IAuth} from "../user.interface";
 import UserUtil from "../user.util";
 import UserCacher from "../user.cacher";

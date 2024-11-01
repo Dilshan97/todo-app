@@ -19,7 +19,7 @@ const createTodo = async (
 
     const todo = new Todo({
         ...sanitizedInputs,
-        user: dbUser
+        user: dbUser._id
     });
 
     await todo.save();

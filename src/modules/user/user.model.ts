@@ -1,3 +1,7 @@
+/*
+ *   Copyright (c) 2024 Dilshan Ramesh
+ *   All rights reserved.
+ */
 import {model, Schema} from "mongoose";
 import {IUserModel} from "./user.interface";
 import { constants } from "../constants";
