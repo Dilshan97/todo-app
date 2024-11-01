@@ -19,10 +19,11 @@ const getPaginatedTodos = async (
 ) => {
 
     const { page, limit } = pagination as IPagination;
-    const { keyword, sortBy } = sanitizedResult as ITodoSanitizedResult;
+    const { keyword, sortBy, status } = sanitizedResult as ITodoSanitizedResult;
 
     let queryObj: any = {};
     let sortObj: any = {};
+    let pipeline: any[] = [];
 
     //filter by keyword
     if (keyword){
@@ -42,52 +43,61 @@ const getPaginatedTodos = async (
         ];
     }
 
+    //filter by status
+    if (status){
+        queryObj.status = {
+            $eq: status,
+        };
+    }
+
+    pipeline.push({
+        $match: {
+            ...queryObj,
+            user: {
+                $eq:  new mongoose.Types.ObjectId(userId)
+            }
+        }
+    });
+
     //sort
     if (sortBy){
         if (sortBy === constants.TODO.SORT_BY.PRIORITY_DESC || sortBy === constants.TODO.SORT_BY.PRIORITY_ASC) {
+            pipeline.push({
+                $addFields: {
+                    priorityOrder: {
+                        $switch: {
+                            branches: [
+                                { case: { $eq: ["$priority", "high"] }, then: 1 },
+                                { case: { $eq: ["$priority", "medium"] }, then: 2 },
+                                { case: { $eq: ["$priority", "low"] }, then: 3 },
+                            ],
+                            default: 4,
+                        }
+                    }
+                }
+            });
             sortObj = { priorityOrder: sortBy === constants.TODO.SORT_BY.PRIORITY_DESC ? -1 : 1 };
         }
         else if (sortBy === constants.TODO.SORT_BY.DUE_DATE_DESC || sortBy === constants.TODO.SORT_BY.DUE_DATE_ASC) {
             sortObj = { dueDate: sortBy === constants.TODO.SORT_BY.DUE_DATE_DESC ? -1 : 1 };
         }
+
+        pipeline.push({
+            $sort: sortObj
+        });
     }
 
-    const result = await Todo.aggregate([
-        {
-          $match: {
-              ...queryObj,
-              user: {
-                  $eq:  new mongoose.Types.ObjectId(userId)
-              }
-          }
+    pipeline.push({
+        $facet: {
+            metadata: [{ $count: "totalElements" }],
+            data: [
+                { $skip: (page - 1) * limit },
+                { $limit: limit },
+            ],
         },
-        {
-            $addFields: {
-                priorityOrder: {
-                    $switch: {
-                        branches: [
-                            { case: { $eq: ["$priority", "high"] }, then: 1 },
-                            { case: { $eq: ["$priority", "medium"] }, then: 2 },
-                            { case: { $eq: ["$priority", "low"] }, then: 3 },
-                        ],
-                        default: 4,
-                    }
-                }
-            }
-        },
-        {
-            $sort: sortObj
-        },
-        {
-            $facet: {
-                metadata: [{ $count: "totalElements" }],
-                data: [
-                    { $skip: (page - 1) * limit },
-                    { $limit: limit },
-                ],
-            },
-        }
-    ]);
+    });
+
+    const result = await Todo.aggregate(pipeline);
 
     const content = result[0].data;
     const totalElements = result[0]?.metadata[0]?.totalElements || 0;

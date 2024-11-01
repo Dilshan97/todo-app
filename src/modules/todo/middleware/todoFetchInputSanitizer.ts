@@ -13,6 +13,13 @@ const todoFetchInputSanitizer = async (req: Request, res: Response, next: NextFu
         keyword: Joi.string().optional().messages({
             "string.empty": "Keyword is required",
         }),
+        status: Joi.string().valid(
+            constants.TODO.STATUSES.PENDING,
+            constants.TODO.STATUSES.IN_PROGRESS,
+            constants.TODO.STATUSES.COMPLETED,
+        ).optional().messages({
+            "string.pattern.base": "Status must be either pending, in_progress, or completed",
+        }),
         sortBy: Joi.string().valid(
             constants.TODO.SORT_BY.PRIORITY_ASC,
             constants.TODO.SORT_BY.PRIORITY_DESC,
@@ -35,6 +42,7 @@ const todoFetchInputSanitizer = async (req: Request, res: Response, next: NextFu
     req.body.sanitizedResult = {
         keyword: queryPrams.keyword,
         sortBy: queryPrams.sortBy,
+        status: queryPrams.status,
     } as ITodoSanitizedResult;
 
     next();
