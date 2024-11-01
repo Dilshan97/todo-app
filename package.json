@@ -1,0 +1,36 @@
+{
+  "name": "todo-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/server.ts",
+  "scripts": {
+    "dev:ts": "tsc -w",
+    "dev:js": "nodemon build/server.js",
+    "dev": "concurrently npm:dev:*",
+    "build": "tsc",
+    "start": "node build/server.js"
+  },
+  "dependencies": {
+    "@types/nodemailer": "^6.4.15",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "express-async-errors": "^3.1.1",
+    "http-status-codes": "^2.3.0",
+    "joi": "^17.13.3",
+    "jsonwebtoken": "^9.0.2",
+    "jwt-decode": "^4.0.0",
+    "redis": "^4.6.15",
+    "mongoose": "^7.2.0"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/jsonwebtoken": "^9.0.6",
+    "typescript": "^5.5.3",
+    "nodemon": "^2.0.22"
+  }
+}
