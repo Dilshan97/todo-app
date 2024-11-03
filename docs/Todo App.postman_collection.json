@@ -1,0 +1,1304 @@
+{
+	"info": {
+		"_postman_id": "5ca1eb98-77e9-4f44-9b97-9ece31d94c6d",
+		"name": "Todo App",
+		"description": "This repository includes the REST API for simple Todo App. This project handles CRUD operations for todo management, including creating, retrieving, updating, and deleting todo records and User Authentication including Register a new user and login user functions.\n\nAPI BASE URL - http://localhost:4000/api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15417642"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Dilshan\",\n    \"email\": \"dilshan@example.com\",\n    \"password\": \"123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/user/register",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"user",
+								"register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "400",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/user/register",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"user",
+										"register"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "132"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"84-b9VsMxNiB1oTt5eoJz29DPcbt/c\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 01 Nov 2024 19:44:48 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Data validation error\",\n    \"data\": {\n        \"name\": \"Name is required\",\n        \"email\": \"Email is required\",\n        \"password\": \"Password is required\"\n    }\n}"
+						},
+						{
+							"name": "403",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Dilshan\",\n    \"email\": \"dilshan@example.com\",\n    \"password\": \"123\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/user/register",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"user",
+										"register"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "44"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2c-pk1vdfmrZH5jrD+e0y1MY6ytzYE\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 01 Nov 2024 19:48:50 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"User already exists!\",\n    \"data\": {}\n}"
+						}
+					]
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"dilshan@example.com\",\n    \"password\": \"123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/user/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "400",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/user/login",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"user",
+										"login"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "106"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"6a-/7nQzN8Vlf+DVe+q2j4K8FvkFc0\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 01 Nov 2024 19:50:32 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Data validation error\",\n    \"data\": {\n        \"email\": \"Email is required\",\n        \"password\": \"Password is required\"\n    }\n}"
+						},
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"dilshan@example.com\",\n    \"password\": \"123\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/user/login",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"user",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "267"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"10b-jV8Jm8jo38i7RKll8wnrSePuKbo\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 01 Nov 2024 20:01:39 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"User logged in successfully!\",\n    \"payload\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzI1MzA5MzBkYTVjYmI0MzRlNzhjMTUiLCJlbWFpbCI6ImRpbHNoYW5AZXhhbXBsZS5jb20iLCJpYXQiOjE3MzA0OTEyOTksImV4cCI6MTczMDQ5NDg5OX0.5jhdf_txwQLov3XY1Hn5i6D66BonerCjMY0zEsn3wGA\"\n}"
+						}
+					]
+				},
+				{
+					"name": "logout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/user/logout",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"user",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "User Authentication  \n• Register: Allow users to create new accounts using their email and password.  \n• Login: Enable users to authenticate with their email and password."
+		},
+		{
+			"name": "todo",
+			"item": [
+				{
+					"name": "create todo",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"React Practical Examination\",\n    \"description\": \"React begineer practical examination\",\n    \"priority\": \"high\",\n    \"dueDate\": \"2024-11-10\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/todo",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"todo"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "401",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/todo",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"todo"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "70"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"46-w87XGr9ifDKrNtYth3AZA7uHPJo\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 01 Nov 2024 20:21:14 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"You're not authorized to access this resource!\",\n    \"data\": {}\n}"
+						},
+						{
+							"name": "400",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/todo",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"todo"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "146"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"92-UYTXydeRWl4BjsdJbmjERMm9pX4\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 01 Nov 2024 20:21:35 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Data validation error\",\n    \"data\": {\n        \"title\": \"Title is required\",\n        \"description\": \"Description is required\",\n        \"priority\": \"Priority is required\"\n    }\n}"
+						},
+						{
+							"name": "201",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"Nodejs Practical Examination\",\n    \"description\": \"nodejs begineer practical examination\",\n    \"priority\": \"high\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/todo",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"todo"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "327"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"147-EzbIpstTKGydbIWPqAyvF0zp1wA\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 01 Nov 2024 20:34:05 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Todo successfully created!\",\n    \"payload\": {\n        \"user\": \"672530930da5cbb434e78c15\",\n        \"title\": \"Nodejs Practical Examination\",\n        \"description\": \"nodejs begineer practical examination\",\n        \"priority\": \"high\",\n        \"dueDate\": \"2024-11-10T00:00:00.000Z\",\n        \"status\": \"pending\",\n        \"_id\": \"67253f02aee74410e980246f\",\n        \"createdAt\": \"2024-11-01T20:50:10.827Z\",\n        \"updatedAt\": \"2024-11-01T20:50:10.827Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "update todo",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Nodejs Practical Examination-updated\",\n    \"description\": \"nodejs begineer practical examination\",\n    \"priority\": \"high\",\n    \"status\": \"pending\",\n    \"dueDate\": \"2024-11-09\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/todo/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"todo",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "67253f02aee74410e980246f"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "400",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/todo/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"todo",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "67253b3db4662a4698181d58"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "176"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"b0-A71LtOOsueQDE+YKMhkzDxQ+PhY\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 01 Nov 2024 20:38:19 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Data validation error\",\n    \"data\": {\n        \"title\": \"Title is required\",\n        \"description\": \"Description is required\",\n        \"priority\": \"Priority is required\",\n        \"status\": \"Status is required\"\n    }\n}"
+						},
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"Nodejs Practical Examination-updated\",\n    \"description\": \"nodejs begineer practical examination\",\n    \"priority\": \"high\",\n    \"status\": \"pending\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/todo/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"todo",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "67253b3db4662a4698181d58"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "335"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"14f-h4LnJ4Cfn2iQIyDIwLcL8m0Xfe4\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 01 Nov 2024 20:39:11 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Todo successfully updated!\",\n    \"payload\": {\n        \"_id\": \"67253f02aee74410e980246f\",\n        \"user\": \"672530930da5cbb434e78c15\",\n        \"title\": \"Nodejs Practical Examination-updated\",\n        \"description\": \"nodejs begineer practical examination\",\n        \"priority\": \"high\",\n        \"dueDate\": \"2024-11-10T00:00:00.000Z\",\n        \"status\": \"pending\",\n        \"createdAt\": \"2024-11-01T20:50:10.827Z\",\n        \"updatedAt\": \"2024-11-01T20:51:12.362Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "delete todo",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/todo/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"todo",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "67253b3db4662a4698181d58"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get paginated todos",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/todo?page=1&limit=8",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"todo"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "8"
+								},
+								{
+									"key": "keyword",
+									"value": "node",
+									"description": "you can enter any keyword. filtering is done for title & description properties.",
+									"disabled": true
+								},
+								{
+									"key": "sortBy",
+									"value": "priority_desc",
+									"description": "priority_asc, priority_desc, due_date_asc, due_date_desc",
+									"disabled": true
+								},
+								{
+									"key": "status",
+									"value": "completed",
+									"description": "pending, in progress, completed",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "with pagination",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/todo?page=1&limit=8",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"todo"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "8"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "733"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2dd-FFQ6tnKPLEUXF1nw11hEzZcsbgo\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 03 Nov 2024 06:57:41 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Todos successfully fetched!\",\n    \"payload\": {\n        \"content\": [\n            {\n                \"_id\": \"67253f02aee74410e980246f\",\n                \"user\": \"672530930da5cbb434e78c15\",\n                \"title\": \"Nodejs Practical Examination-updated\",\n                \"description\": \"nodejs begineer practical examination\",\n                \"priority\": \"high\",\n                \"dueDate\": \"2024-11-10T00:00:00.000Z\",\n                \"status\": \"completed\",\n                \"createdAt\": \"2024-11-01T20:50:10.827Z\",\n                \"updatedAt\": \"2024-11-01T20:51:12.362Z\"\n            },\n            {\n                \"_id\": \"6725452c877c4862591cfd31\",\n                \"user\": \"672530930da5cbb434e78c15\",\n                \"title\": \"React Practical Examination\",\n                \"description\": \"React begineer practical examination\",\n                \"priority\": \"low\",\n                \"dueDate\": \"2024-11-09T00:00:00.000Z\",\n                \"status\": \"pending\",\n                \"createdAt\": \"2024-11-01T21:16:28.899Z\",\n                \"updatedAt\": \"2024-11-01T21:16:28.899Z\"\n            }\n        ],\n        \"totalElements\": 2,\n        \"totalPages\": 1\n    }\n}"
+						},
+						{
+							"name": "with keyword search",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/todo?page=1&limit=8&keyword=node",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"todo"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "8"
+										},
+										{
+											"key": "keyword",
+											"value": "node"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "422"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1a6-txQ1avU7VE0WIkRBzGtBoaocxw8\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 03 Nov 2024 06:58:16 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Todos successfully fetched!\",\n    \"payload\": {\n        \"content\": [\n            {\n                \"_id\": \"67253f02aee74410e980246f\",\n                \"user\": \"672530930da5cbb434e78c15\",\n                \"title\": \"Nodejs Practical Examination-updated\",\n                \"description\": \"nodejs begineer practical examination\",\n                \"priority\": \"high\",\n                \"dueDate\": \"2024-11-10T00:00:00.000Z\",\n                \"status\": \"completed\",\n                \"createdAt\": \"2024-11-01T20:50:10.827Z\",\n                \"updatedAt\": \"2024-11-01T20:51:12.362Z\"\n            }\n        ],\n        \"totalElements\": 1,\n        \"totalPages\": 1\n    }\n}"
+						},
+						{
+							"name": "with status filter",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/todo?page=1&limit=8&status=completed",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"todo"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "8"
+										},
+										{
+											"key": "status",
+											"value": "completed"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "422"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1a6-txQ1avU7VE0WIkRBzGtBoaocxw8\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 03 Nov 2024 06:58:45 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Todos successfully fetched!\",\n    \"payload\": {\n        \"content\": [\n            {\n                \"_id\": \"67253f02aee74410e980246f\",\n                \"user\": \"672530930da5cbb434e78c15\",\n                \"title\": \"Nodejs Practical Examination-updated\",\n                \"description\": \"nodejs begineer practical examination\",\n                \"priority\": \"high\",\n                \"dueDate\": \"2024-11-10T00:00:00.000Z\",\n                \"status\": \"completed\",\n                \"createdAt\": \"2024-11-01T20:50:10.827Z\",\n                \"updatedAt\": \"2024-11-01T20:51:12.362Z\"\n            }\n        ],\n        \"totalElements\": 1,\n        \"totalPages\": 1\n    }\n}"
+						},
+						{
+							"name": "with sorting",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/todo?page=1&limit=8&sortBy=priority_desc",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"todo"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "8"
+										},
+										{
+											"key": "sortBy",
+											"value": "priority_desc"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "769"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"301-wDtyBRTBGw8XobJWulGTlRO/yvo\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 03 Nov 2024 06:59:14 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Todos successfully fetched!\",\n    \"payload\": {\n        \"content\": [\n            {\n                \"_id\": \"6725452c877c4862591cfd31\",\n                \"user\": \"672530930da5cbb434e78c15\",\n                \"title\": \"React Practical Examination\",\n                \"description\": \"React begineer practical examination\",\n                \"priority\": \"low\",\n                \"dueDate\": \"2024-11-09T00:00:00.000Z\",\n                \"status\": \"pending\",\n                \"createdAt\": \"2024-11-01T21:16:28.899Z\",\n                \"updatedAt\": \"2024-11-01T21:16:28.899Z\",\n                \"priorityOrder\": 3\n            },\n            {\n                \"_id\": \"67253f02aee74410e980246f\",\n                \"user\": \"672530930da5cbb434e78c15\",\n                \"title\": \"Nodejs Practical Examination-updated\",\n                \"description\": \"nodejs begineer practical examination\",\n                \"priority\": \"high\",\n                \"dueDate\": \"2024-11-10T00:00:00.000Z\",\n                \"status\": \"completed\",\n                \"createdAt\": \"2024-11-01T20:50:10.827Z\",\n                \"updatedAt\": \"2024-11-01T20:51:12.362Z\",\n                \"priorityOrder\": 1\n            }\n        ],\n        \"totalElements\": 2,\n        \"totalPages\": 1\n    }\n}"
+						}
+					]
+				}
+			],
+			"description": "**Todo Management**\n\n• Create: Allow users to create new Todo items.  \n• Read: Enable users to retrieve their own Todo items.  \n• Update: Permit users to modify existing Todo items.  \n• Delete: Allow users to remove Todo items.\n\nNote: - All the todo endpoints are protected endpoints. before use todo endpoint, please generate a valid access token and use this token as authorization header.\n\nThere are three type of priorities includes\n\n- low\n    \n- medium\n    \n- high\n    \n\nThere are three type of status includes\n\n- pending\n    \n- in progress\n    \n- completed\n    \n\nThere are four type of sort by propeties inducdes\n\n- priority_asc\n    \n- priority_desc\n    \n- due_date_asc\n    \n- due_date_desc"
+		}
+	]
+}
