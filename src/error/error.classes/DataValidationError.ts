@@ -1,4 +1,7 @@
-
+/*
+ *   Copyright (c) 2024 Dilshan Ramesh
+ *   All rights reserved.
+ */
 import CustomAPIError from "./CustomAPIError";
 import { StatusCodes } from "http-status-codes";
 import {IStringDictionary} from "../../modules/common/common.interface";

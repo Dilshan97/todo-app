@@ -1,7 +1,6 @@
 /*
- *   Copyright (c) 2023
+ *   Copyright (c) 2024 Dilshan Ramesh
  *   All rights reserved.
- *   Nova Solutions (Pvt) Ltd. All rights reserved.
  */
 import { StatusCodes } from "http-status-codes";
 import CustomAPIError from "./CustomAPIError";
