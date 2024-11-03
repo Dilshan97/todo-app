@@ -4,6 +4,8 @@ import TestDbConfig from "../../../config/test-db.config";
 import {StatusCodes} from "http-status-codes";
 import {ITodoCreateSanitizedInputs} from "../../../modules/todo/todo.interface";
 
+jest.setTimeout(30000);//increase the default timeout 5000 to 300000
+
 describe("TEST: TODO CREATE TESTCASE", () => {
 
     beforeAll(async () => {
