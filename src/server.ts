@@ -7,7 +7,9 @@ import "express-async-errors";
 import "./express-ts-formatter";
 import cors from "cors";
 import dotenv from "dotenv";
+import helmet from "helmet";
 import bodyParser from "body-parser";
+import { rateLimit } from 'express-rate-limit'
 import { StatusCodes } from 'http-status-codes';
 import ErrorMiddleware from "./error/error.middleware";
 import NotFoundError from "./error/error.classes/NotFoundError";
@@ -25,6 +27,14 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 app.use(express.json());
+app.use(helmet());
+app.use(
+    rateLimit({
+        windowMs: 10 * 60 * 1000, // 10 minutes
+        max: 500, // limit each IP to 100 requests per windowMs
+        message: 'Too many requests from this IP, please try again after 10 minutes!',
+    })
+);
 
 app.use("/ping", (req, res, next) => {
     res.status(StatusCodes.OK).json({ message: "pong" });
