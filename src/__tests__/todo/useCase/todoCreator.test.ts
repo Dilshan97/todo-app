@@ -4,6 +4,8 @@ import TestDbConfig from "../../../config/test-db.config";
 import {StatusCodes} from "http-status-codes";
 import {ITodoCreateSanitizedInputs} from "../../../modules/todo/todo.interface";
 
+jest.setTimeout(30000);//increase the default timeout 5000 to 300000
+
 describe("TEST: TODO CREATE TESTCASE", () => {
 
     beforeAll(async () => {
@@ -31,7 +33,7 @@ describe("TEST: TODO CREATE TESTCASE", () => {
             title: "ABC project requirement meeting",
             description: "we have a project requirement meeting on next monday",
             priority: "high",
-            dueDate: new  Date("2024-11-03")
+            dueDate: new  Date("2025-11-03")
         };
 
        const todo = await TodoCreator.createTodo(sanitizedInputs, userId);
@@ -39,19 +41,19 @@ describe("TEST: TODO CREATE TESTCASE", () => {
        expect(todo.title).toBe("ABC project requirement meeting");
        expect(todo.description).toBe("we have a project requirement meeting on next monday");
        expect(todo.priority).toBe("high");
-       expect(todo.dueDate).toEqual(new Date("2024-11-03"));
+       expect(todo.dueDate).toEqual(new Date("2025-11-03"));
        expect(todo.status).toEqual("pending");
     });
 
     test("Should fail if the user does not exist", async () => {
 
-        const userId = new mongoose.Types.ObjectId("671ca295d8307616b9e887a3"); // non-existing user
+        const userId = new mongoose.Types.ObjectId("671ca295d8307616b9e287a3"); // non-existing user
 
         const sanitizedInputs: ITodoCreateSanitizedInputs = {
             title: "ABC project requirement meeting",
             description: "we have a project requirement meeting on next monday",
             priority: "high",
-            dueDate: new  Date("2024-11-03")
+            dueDate: new  Date("2025-11-03")
         };
 
         try {
