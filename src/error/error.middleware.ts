@@ -1,7 +1,12 @@
-import { Request, Response, NextFunction } from "express";
+/*
+ *   Copyright (c) 2024 Dilshan Ramesh
+ *   All rights reserved.
+ */
+import logger from "./logger";
 import { StatusCodes } from "http-status-codes";
 import InternalServerError from "../error/error.classes/InternalServerError";
 import { IStringDictionary } from "../modules/common/common.interface";
+import { Request, Response, NextFunction } from "express";
 
 const errorHandler = (err: any, req: Request, res: Response, next: NextFunction) => {
     let customError: {
@@ -13,8 +18,6 @@ const errorHandler = (err: any, req: Request, res: Response, next: NextFunction)
         message: err.message || "Something Went Wrong!",
         data: err.data || {},
     };
-
-    console.log(err);
 
     // if status 500 display set err msg to "Something went wrong"
     if (customError.statusCode == StatusCodes.INTERNAL_SERVER_ERROR)
@@ -51,6 +54,9 @@ const errorHandler = (err: any, req: Request, res: Response, next: NextFunction)
         customError.message = `No Item found With ID ${err.value}`;
         customError.statusCode = StatusCodes.NOT_FOUND;
     }
+
+    //logo error in logger
+    logger.error(`Error processing request: ${req.method} ${req.url}`, err);
 
     return res
         .status(customError.statusCode)

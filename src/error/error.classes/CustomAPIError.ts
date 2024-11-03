@@ -1,3 +1,7 @@
+/*
+ *   Copyright (c) 2024 Dilshan Ramesh
+ *   All rights reserved.
+ */
 class CustomAPIError extends Error {
     data: {};
     constructor(message: string, data?: {}) {

@@ -31,7 +31,7 @@ app.use(helmet());
 app.use(
     rateLimit({
         windowMs: 10 * 60 * 1000, // 10 minutes
-        max: 500, // limit each IP to 100 requests per windowMs
+        limit: 500, // limit each IP to 100 requests per windowMs
         message: 'Too many requests from this IP, please try again after 10 minutes!',
     })
 );
