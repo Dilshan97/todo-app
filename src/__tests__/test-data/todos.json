@@ -1,0 +1,97 @@
+[
+  {
+    "_id": {
+      "$oid": "671ca295d8307616b9e777a1"
+    },
+    "user": {
+      "$oid": "671ca295d8307616b9e887a2"
+    },
+    "title": "Task 1",
+    "description": "This is the description for Task 1.",
+    "priority": "high",
+    "dueDate": "2024-11-16T06:03:40.548736",
+    "status": "completed",
+    "createdAt": {
+      "$date": "2024-10-26T08:04:37.129Z"
+    },
+    "updatedAt": {
+      "$date": "2024-10-26T08:04:37.129Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "671ca295d8307616b9e778a2"
+    },
+    "user": {
+      "$oid": "671ca295d8307616b9e887a2"
+    },
+    "title": "Task 2",
+    "description": "This is the description for Task 2.",
+    "priority": "high",
+    "dueDate": "2024-11-20T06:03:40.548753",
+    "status": "pending",
+    "createdAt": {
+      "$date": "2024-10-26T08:04:37.129Z"
+    },
+    "updatedAt": {
+      "$date": "2024-10-26T08:04:37.129Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "671ca295d8307616b9e779a3"
+    },
+    "user": {
+      "$oid": "671ca295d8307616b9e887a2"
+    },
+    "title": "Task 3",
+    "description": "This is the description for Task 3.",
+    "priority": "low",
+    "dueDate": "2024-12-01T06:03:40.548758",
+    "status": "in progress",
+    "createdAt": {
+      "$date": "2024-10-26T08:04:37.129Z"
+    },
+    "updatedAt": {
+      "$date": "2024-10-26T08:04:37.129Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "671ca295d8307616b9e780a4"
+    },
+    "user": {
+      "$oid": "671ca295d8307616b9e887a5"
+    },
+    "title": "Task 4",
+    "description": "This is the description for Task 4.",
+    "priority": "medium",
+    "dueDate": "2024-11-19T06:03:40.548763",
+    "status": "completed",
+    "createdAt": {
+      "$date": "2024-10-26T08:04:37.129Z"
+    },
+    "updatedAt": {
+      "$date": "2024-10-26T08:04:37.129Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "671ca295d8307616b9e781a5"
+    },
+    "user": {
+      "$oid": "671ca295d8307616b9e887a5"
+    },
+    "title": "Task 5",
+    "description": "This is the description for Task 5.",
+    "priority": "high",
+    "dueDate": "2024-11-15T06:03:40.548768",
+    "status": "in progress",
+    "createdAt": {
+      "$date": "2024-10-26T08:04:37.129Z"
+    },
+    "updatedAt": {
+      "$date": "2024-10-26T08:04:37.129Z"
+    }
+  }
+]

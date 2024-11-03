@@ -17,7 +17,7 @@
     "_id": {
       "$oid": "671ca295d8307616b9e887a5"
     },
-    "name": "Michael Jayasing",
+    "name": "Michael",
     "email": "michael.jayasing@example.com",
     "password": "$2a$10$ihqzKgX6lZuaZltD4jtB9.Yk6DtuvOBxcLLp6NX2ulfq0rK0z8fX6",
     "createdAt": {
@@ -25,48 +25,6 @@
     },
     "updatedAt": {
       "$date": "2024-10-26T08:04:37.406Z"
-    }
-  },
-  {
-    "_id": {
-      "$oid": "671ca295d8307616b9e887a8"
-    },
-    "name": "Jessica",
-    "email": "jessica.gunarat@example.com",
-    "password": "$2a$10$ihqzKgX6lZuaZltD4jtB9.Yk6DtuvOBxcLLp6NX2ulfq0rK0z8fX6",
-    "createdAt": {
-      "$date": "2024-10-26T08:04:37.649Z"
-    },
-    "updatedAt": {
-      "$date": "2024-10-26T08:04:37.649Z"
-    }
-  },
-  {
-    "_id": {
-      "$oid": "671ca296d8307616b9e887b1"
-    },
-    "name": "Daniel",
-    "email": "daniel.silva@example.com",
-    "password": "$2a$10$ihqzKgX6lZuaZltD4jtB9.Yk6DtuvOBxcLLp6NX2ulfq0rK0z8fX6",
-    "createdAt": {
-      "$date": "2024-10-26T08:04:38.408Z"
-    },
-    "updatedAt": {
-      "$date": "2024-10-26T08:04:38.408Z"
-    }
-  },
-  {
-    "_id": {
-      "$oid": "671ca296d8307616b9e887b7"
-    },
-    "name": "Jameson Niroshan",
-    "email": "jameson.niroshan@example.com",
-    "password": "$2a$10$ihqzKgX6lZuaZltD4jtB9.Yk6DtuvOBxcLLp6NX2ulfq0rK0z8fX6",
-    "createdAt": {
-      "$date": "2024-10-26T08:04:38.895Z"
-    },
-    "updatedAt": {
-      "$date": "2024-10-26T08:04:38.895Z"
     }
   }
 ]

@@ -15,7 +15,7 @@ const updateTodo = async (
     userId: string | mongoose.Types.ObjectId
 ) => {
 
-    const { title, description, status, priority } = sanitizedInputs as ITodoUpdateSanitizedInputs;
+    const { title, description, status, priority, dueDate } = sanitizedInputs as ITodoUpdateSanitizedInputs;
 
     const dbUser = await UserService.findById(userId);
 
@@ -31,6 +31,7 @@ const updateTodo = async (
     dbTodo.description = description;
     dbTodo.status = status;
     dbTodo.priority = priority;
+    dbTodo.dueDate = dueDate;
 
     await dbTodo.save();
 
